@@ -1,0 +1,14 @@
+{{ heroForm.value | json }}
+<form [FormGroup]="heroForm" (submit)="onSubmit()">
+  <input type="text" formControlName="login" placeholder="Enter email" />
+  <input
+    type="password"
+    formControlName="password"
+    placeholder="Enter your password"
+  />
+  <button type="submit">Create</button>
+</form>
+
+
+ 
+
