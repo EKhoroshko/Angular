@@ -1,5 +1,9 @@
-<h1>{{title}}</h1>
-<nav><a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
+<section class="section">
+  <h1 class="section-title">{{ title }}</h1>
+  <nav class="section-nav">
+    <a class="section-link" routerLink="/dashboard">Dashboard</a>
+    <a class="section-link" routerLink="/heroes">Heroes</a>
+  </nav>
+</section>
+
 <router-outlet></router-outlet>

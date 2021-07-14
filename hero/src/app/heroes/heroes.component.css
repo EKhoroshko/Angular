@@ -1,14 +1,33 @@
-li.selected {
-  background-color: black;
-  color: white;
+.hero {
+  padding: 20px 0;
+  text-align: center;
 }
 
-li.selected:hover {
-  background-color: #505050;
-  color: white;
+.hero-title {
+margin-bottom: 20px;
 }
 
-li.selected:active {
-  background-color: black;
-  color: white;
+.hero-block {
+}
+
+.hero-label {
+  font-weight: 500;
+}
+
+.hero-input {
+}
+
+.hero-add {
+  
+}
+
+.hero-list {
+}
+.hero-item {
+}
+.hero-link {
+}
+.hero-wrapper {
+}
+.hero-del {
 }

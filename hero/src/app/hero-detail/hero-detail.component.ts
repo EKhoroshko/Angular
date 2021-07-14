@@ -12,7 +12,8 @@ import { HeroService } from '../hero.service';
 })
   
 export class HeroDetailComponent implements OnInit {
-  @Input() hero?: Hero;
+  hero: Hero | undefined;
+  
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
@@ -30,4 +31,11 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  save(): void{
+    if(this.hero){
+      this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+    }
+  }
+
 }
