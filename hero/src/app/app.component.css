@@ -4,12 +4,10 @@
 
 .section-title{
     font-size: 30px;
-    text-align: center;
     margin-bottom: 30px;
 }
 
 .section-nav{
-    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -27,6 +25,7 @@
 .section-link:hover,
 .section-link:focus{
     background-color:darkgray;
+    color: rgba(24, 112, 184, 0.767);
 }
 
 .section-link:last-child{
