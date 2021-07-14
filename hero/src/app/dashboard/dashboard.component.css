@@ -1,0 +1,30 @@
+.top {
+    text-align: center;
+}
+
+.top-title {
+    margin-bottom: 10px;
+}
+
+.top-box {
+    margin-bottom: 10px;
+     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.top-link {
+    width: 200px;
+    padding: 20px;
+    background-color: #a59595;
+   color: black;
+   border-radius: 5px;
+   font-size: 20px;
+  font-weight: 500;
+}
+
+.top-link:hover,
+.top-link:focus{
+    background-color: darkgray;
+  color: rgba(24, 112, 184, 0.767);
+}

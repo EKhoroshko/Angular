@@ -30,26 +30,22 @@ export class HeroRegComponent implements OnInit {
     console.log(this.heroForm.value);
   }
 
-  isControlInvalid(controlName: string): boolean {
+  /*isControlInvalid(controlName: string): boolean {
     const control = this.heroForm.controls[controlName];
 
     const result = control.invalid && control.touched;
 
     return result;
-  }
+  }*/
 
   private initForm() {
     this.heroForm = this.fb.group({
-      email: ['', [
-        Validators.required, Validators.email
-      ]
-      ],
+      name: ['', [
+        Validators.required]],
       password: ['', [
         Validators.required
       ]
       ],
     });
   }
-
- 
 }

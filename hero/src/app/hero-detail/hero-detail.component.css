@@ -1,0 +1,45 @@
+.card {
+    text-align: center;
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.card-paragraf {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card-wrapper {
+    margin-bottom: 10px;
+}
+
+.card-input {
+    width: 250px;
+    padding: 10px 10px;
+    background-color:transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-back {
+    margin-right: 15px;
+}
+
+.card-btn {
+    width: 100px;
+    border-radius: 4px;
+  padding: 14px 10px;
+  background-color: #a59595;
+  font-weight: 700;
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.card-btn:hover,
+.card-btn:focus{
+      background-color: darkgray;
+  color: rgba(24, 112, 184, 0.767);
+}

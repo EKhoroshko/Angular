@@ -1,6 +1,6 @@
-
+<div>
 <form [formGroup]="heroForm" (submit)="onSubmit()">
-  <input type="email" formControlName="email" placeholder="Enter email" />
+  <input type="text" formControlName="name" placeholder="Enter name" />
   <input
     type="password"
     formControlName="password"
@@ -12,7 +12,4 @@
 <div>
   {{ heroForm.value | json }}
 </div>
-
-
- 
-
+</div>
