@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 
 export class HeroRegComponent implements OnInit {
-  heroForm: FormGroup;
+  heroForm: FormGroup = new FormGroup({});
 
   constructor(private fb:FormBuilder) { }
 
@@ -30,24 +30,24 @@ export class HeroRegComponent implements OnInit {
     console.log(this.heroForm.value);
   }
 
-  /*isControlInvalid(controlName: string): boolean {
+  isControlInvalid(controlName: string): boolean {
     const control = this.heroForm.controls[controlName];
 
     const result = control.invalid && control.touched;
 
     return result;
-  }*/
+  }
 
   private initForm() {
     this.heroForm = this.fb.group({
-      name: ['', [
-        Validators.required
-      ]
-      ],
       email: ['', [
         Validators.required, Validators.email
       ]
+      ],
+      password: ['', [
+        Validators.required
       ]
+      ],
     });
   }
 
