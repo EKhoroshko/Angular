@@ -17,26 +17,8 @@ export class HeroRegComponent implements OnInit {
   }
    
   onSubmit(){
-    const controls = this.heroForm.controls;
-
-    if(this.heroForm.invalid){
-      Object.keys(controls)
-      .forEach(controlName => controls[controlName]
-      .markAsTouched());
-
-      return;
-    }
-
     console.log(this.heroForm.value);
   }
-
-  /*isControlInvalid(controlName: string): boolean {
-    const control = this.heroForm.controls[controlName];
-
-    const result = control.invalid && control.touched;
-
-    return result;
-  }*/
 
   private initForm() {
     this.heroForm = this.fb.group({

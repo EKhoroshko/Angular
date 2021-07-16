@@ -1,0 +1,15 @@
+<div>
+  <form >
+      <a routerLink="/base">Back</a>
+    <input type="email"
+    name="email"
+    [(ngModel)]="user.email"
+    placeholder="Enter name"/>
+
+    <input type="password" 
+    name="password"
+    [(ngModel)]="user.password"
+    placeholder="Enter your password"/>
+    <button type="submit" (click)="submit(user)" >Log in</button>
+  </form>
+</div>

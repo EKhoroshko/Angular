@@ -11,6 +11,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroRegComponent } from './hero-reg/hero-reg.component';
+import { HeroBaseComponent } from './hero-base/hero-base.component';
+import { HeroLoginComponent } from './hero-login/hero-login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HeroRegComponent } from './hero-reg/hero-reg.component';
     DashboardComponent,
     HeroSearchComponent,
     HeroRegComponent,
+    HeroBaseComponent,
+    HeroLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +31,9 @@ import { HeroRegComponent } from './hero-reg/hero-reg.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false}),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
   ],
   bootstrap: [AppComponent],
 })
