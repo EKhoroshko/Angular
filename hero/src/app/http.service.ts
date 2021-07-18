@@ -3,12 +3,15 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from './hero';
 
 @Injectable()
-export class httpService{
-    constructor(private http: HttpClient){ }
-     
-    postData(user: User){  
-        const myHeaders=new HttpHeaders({'Content-Type':'application/json'})
-        const body = { email: user.email, password: user.password }
-        return this.http.post('https://reqres.in/api/login', body, {headers: myHeaders}); 
-    }
+export class httpService {
+  private postUrl = 'https://reqres.in';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' }),
+  };
+  constructor(private http: HttpClient) {}
+
+  postData(user: User) {
+    return this.http.post(`${this.postUrl}/api/login`, user, this.httpOptions);
+  }
 }

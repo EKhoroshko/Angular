@@ -11,11 +11,16 @@ import {User} from '../hero';
 
 export class HeroLoginComponent implements OnInit {
 user: User = new User();
+  data!: Object;
 
   constructor(private httpService: httpService) {}
   submit(user: User){
     this.httpService.postData(this.user).subscribe
-      (data => console.log(data));
+      ((data) => {
+        this.data = data;
+        console.log(this.data);
+        
+      });
   }
   
   ngOnInit(): void {

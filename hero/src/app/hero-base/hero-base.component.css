@@ -1,0 +1,35 @@
+.section {
+  padding-top: 30px;
+  display: flex;
+  align-items: baseline;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.section-list {
+  display: flex;
+  margin-left: auto;
+}
+
+.section-item {
+  margin-right: 50px;
+}
+
+.section-item:last-child {
+  margin-right: 0;
+}
+
+.section-link {
+  width: 100px;
+  border-radius: 4px;
+  padding: 14px 10px;
+  background-color: #a59595;
+  font-weight: 700;
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
+  color: black;
+}

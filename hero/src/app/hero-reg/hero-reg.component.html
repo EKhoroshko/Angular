@@ -1,5 +1,7 @@
-<div>
+
+<section> 
   <a routerLink="/base">Back</a>
+<div>
 <form [formGroup]="heroForm" (submit)="onSubmit()">
   <input type="text" formControlName="name" placeholder="Enter name" />
   <input
@@ -9,8 +11,10 @@
   />
   <button type="submit">Create</button>
 </form>
+</div>
 
 <div>
   {{ heroForm.value | json }}
 </div>
-</div>
+
+</section>
