@@ -1,10 +1,36 @@
 <div class="card" *ngIf="user">
-  <h2 class="card-title" >{{ user.first_name | uppercase }} Details</h2>
-  <div class="card-paragraf"><span>id: </span>{{ user.id }}</div>
-  <div class="card-wrapper">
-    <label  for="name">Hero name: </label>
-    <input class="card-input" id="name" [(ngModel)]="user.first_name" placeholder="name" />
+  <h2 class="card-title">
+    {{ user.first_name + " " + user.last_name | uppercase }}
+  </h2>
+  <img class="card-image" src="{{ user.avatar }}" alt="{{ user.first_name }}" />
+  <p class="card-paragraf">{{ user.first_name + " " + user.last_name }}</p>
+  <p class="card-paragraf">{{ user.job }}</p>
+
+  <div class="card-wrapper" [ngClass]="{ invisible: visibility }">
+    <label for="name">User name: </label>
+    <input
+      class="card-input"
+      id="name"
+      [(ngModel)]="user.first_name"
+      placeholder="first name"
+    />
+    <input
+      class="card-input"
+      id="name"
+      [(ngModel)]="user.last_name"
+      placeholder=" last name"
+    />
+    <input
+      class="card-input"
+      id="job"
+      [(ngModel)]="user.job"
+      placeholder="job"
+    />
+    <div>
+      <button class="card-btn card-back" (click)="save()">save</button>
+      <button class="card-btn" (click)="delete(user.id)">delete</button>
+    </div>
   </div>
   <button class="card-btn card-back" (click)="goBack()">go back</button>
-  
+  <button class="card-btn" (click)="toggle()">Change info</button>
 </div>

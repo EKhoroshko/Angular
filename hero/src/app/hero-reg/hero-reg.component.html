@@ -1,19 +1,20 @@
-<section>
-  <a routerLink="/base">Back</a>
-  <div>
-    <form>
-      <input
+<section class="section">
+  <a class="section-link" routerLink="/base">Back</a>
+  <div class="section-box">
+    <form class="section-form">
+      <input class="section-input"
         type="email"
         name="email"
         [(ngModel)]="user.email"
         placeholder="Enter name"
       />
-      <input
+      <input class="section-input"
         type="password"
-        formControlName="password"
+        name="password"
+        [(ngModel)]="user.password"
         placeholder="Enter your password"
       />
-      <button type="submit" (click)="submit(user)">Create</button>
+      <button class="btn-reg" type="submit" (click)="submit(user)">Create</button>
     </form>
   </div>
 </section>

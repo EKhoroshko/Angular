@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormUser } from '../heroes/formUser';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { httpService } from '../http.service';
@@ -8,12 +7,25 @@ import { httpService } from '../http.service';
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
-  providers: [httpService]
+  providers: [httpService],
 })
-  
 export class HeroDetailComponent implements OnInit {
-  user: FormUser | undefined;
-  
+  user!: {
+    avatar: string;
+    email: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    job: string;
+  };
+
+  userSave!: {
+    name: string;
+    job: string;
+  };
+
+  visibility: boolean = true;
+
   constructor(
     private route: ActivatedRoute,
     private httpService: httpService,
@@ -26,17 +38,25 @@ export class HeroDetailComponent implements OnInit {
 
   getUser(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.httpService.getUser(id).subscribe((user) => (this.user = user));
+    this.httpService.getUser(id).subscribe((user) => {
+      this.user = user.data;
+    });
   }
   goBack(): void {
     this.location.back();
   }
 
-  /*save(): void{
-    if(this.user){
-      this.httpService.updateUser(this.user)
-      .subscribe(() => this.goBack());
+  save(): void {
+    if (this.user) {
+      this.httpService.updateUser(this.userSave).subscribe(() => this.goBack());
     }
-  }*/
+  }
 
+  delete(id: number) {
+    return this.httpService.deleteUser(id).subscribe();
+  }
+
+  toggle() {
+    this.visibility = !this.visibility;
+  }
 }

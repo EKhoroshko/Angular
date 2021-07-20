@@ -1,12 +1,24 @@
 .section {
-  padding-top: 30px;
-  display: flex;
+  padding: 20px 0;
+  background-color:rgb(10, 138, 138);
+}
+
+.section-conteiner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+   display: flex;
   align-items: baseline;
+  
 }
 
 .section-title {
-  font-size: 28px;
-  font-weight: 700;
+ font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
 }
 
 .section-list {
@@ -26,10 +38,15 @@
   width: 100px;
   border-radius: 4px;
   padding: 14px 10px;
-  background-color: #a59595;
+  background-color: #a7c8ee;
   font-weight: 700;
   font-size: 16px;
   align-items: center;
   text-align: center;
   color: black;
+}
+
+.section-link:focus,
+.section-link:hover {
+background-color: #599ce7;
 }
