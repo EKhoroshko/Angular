@@ -1,33 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { httpService } from '../http.service';
 
 @Component({
   selector: 'app-hero-reg',
   templateUrl: './hero-reg.component.html',
-  styleUrls: ['./hero-reg.component.css']
+  styleUrls: ['./hero-reg.component.css'],
 })
-
 export class HeroRegComponent implements OnInit {
-  heroForm: FormGroup = new FormGroup({});
+  user: FormGroup = new FormGroup({});
+  data!:any;
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb: FormBuilder, private httpService: httpService) {}
 
   ngOnInit(): void {
     this.initForm();
   }
-   
-  onSubmit(){
-    console.log(this.heroForm.value);
+
+  onSubmit() {
+    this.httpService.postData(this.user).subscribe((data: any) => {
+      this.data = data;
+      console.log(this.data);
+    });
+    console.log(this.user.value);
   }
 
   private initForm() {
-    this.heroForm = this.fb.group({
-      name: ['', [
-        Validators.required]],
-      password: ['', [
-        Validators.required
-      ]
-      ],
+    this.user = this.fb.group({
+      name: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 }
