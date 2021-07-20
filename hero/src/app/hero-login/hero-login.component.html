@@ -1,17 +1,21 @@
-<section> 
-<a routerLink="/base">Back</a>
-<div>
-  <form >  
-    <input type="email"
-    name="email"
-    [(ngModel)]="user.email"
-    placeholder="Enter name"/>
+<section>
+  <a routerLink="/base">Back</a>
+  <div>
+    <form>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        placeholder="Enter name"
+      />
 
-    <input type="password" 
-    name="password"
-    [(ngModel)]="user.password"
-    placeholder="Enter your password"/>
-    <button type="submit" (click)="submit(user)" >Log in</button>
-  </form>
-</div>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="user.password"
+        placeholder="Enter your password"
+      />
+      <button type="submit" (click)="submit(user)">Log in</button>
+    </form>
+  </div>
 </section>

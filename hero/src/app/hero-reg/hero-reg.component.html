@@ -1,20 +1,19 @@
-
-<section> 
+<section>
   <a routerLink="/base">Back</a>
-<div>
-<form [formGroup]="heroForm" (submit)="onSubmit()">
-  <input type="text" formControlName="name" placeholder="Enter name" />
-  <input
-    type="password"
-    formControlName="password"
-    placeholder="Enter your password"
-  />
-  <button type="submit">Create</button>
-</form>
-</div>
-
-<div>
-  {{ heroForm.value | json }}
-</div>
-
+  <div>
+    <form>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        placeholder="Enter name"
+      />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <button type="submit" (click)="submit(user)">Create</button>
+    </form>
+  </div>
 </section>

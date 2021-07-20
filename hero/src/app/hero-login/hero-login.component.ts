@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { httpService } from '../http.service';
 import {User} from '../hero';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-login',
@@ -13,13 +14,12 @@ export class HeroLoginComponent implements OnInit {
 user: User = new User();
   data!: Object;
 
-  constructor(private httpService: httpService) {}
+  constructor(private httpService: httpService, private routes: Router) {}
   submit(user: User){
-    this.httpService.postData(this.user).subscribe
+    this.httpService.postDataLogin(this.user).subscribe
       ((data) => {
         this.data = data;
-        console.log(this.data);
-        
+       this.routes.navigate(['/dashboard']);
       });
   }
   

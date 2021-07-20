@@ -1,10 +1,10 @@
-<div class="card" *ngIf="hero">
-  <h2 class="card-title" >{{ hero.name | uppercase }} Details</h2>
-  <div class="card-paragraf"><span>id: </span>{{ hero.id }}</div>
+<div class="card" *ngIf="user">
+  <h2 class="card-title" >{{ user.first_name | uppercase }} Details</h2>
+  <div class="card-paragraf"><span>id: </span>{{ user.id }}</div>
   <div class="card-wrapper">
     <label  for="name">Hero name: </label>
-    <input class="card-input" id="name" [(ngModel)]="hero.name" placeholder="name" />
+    <input class="card-input" id="name" [(ngModel)]="user.first_name" placeholder="name" />
   </div>
   <button class="card-btn card-back" (click)="goBack()">go back</button>
-  <button class="card-btn" (click)="save()">save</button>
+  
 </div>

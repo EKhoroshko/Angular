@@ -1,41 +1,42 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Hero } from '../hero';
+import { FormUser } from '../heroes/formUser';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
-import { HeroService } from '../hero.service';
+import { httpService } from '../http.service';
 
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
+  providers: [httpService]
 })
   
 export class HeroDetailComponent implements OnInit {
-  hero: Hero | undefined;
+  user: FormUser | undefined;
   
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
+    private httpService: httpService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.getHero();
+    this.getUser();
   }
 
-  getHero(): void {
+  getUser(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
+    this.httpService.getUser(id).subscribe((user) => (this.user = user));
   }
   goBack(): void {
     this.location.back();
   }
-  save(): void{
-    if(this.hero){
-      this.heroService.updateHero(this.hero)
+
+  /*save(): void{
+    if(this.user){
+      this.httpService.updateUser(this.user)
       .subscribe(() => this.goBack());
     }
-  }
+  }*/
 
 }

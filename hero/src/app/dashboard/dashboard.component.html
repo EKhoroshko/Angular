@@ -1,15 +1,14 @@
 <section class="top">
-  <h1>Tour of Heroes</h1>
-  <a class="" routerLink="/dashboard">Dashboard</a>
-  <a class="" routerLink="/heroes">Heroes</a>
-<h2 class="top-title">Top Heroes</h2>
-
-<div class="top-box">
-  <a class="top-link" *ngFor="let hero of heroes"
-  routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
-  </a>
-</div>
-<app-hero-search></app-hero-search>
+  <h2 class="top-title">Card Users</h2>
+  <ul>
+    <li *ngFor="let user of users">
+      <a routerLink="/detail/{{ user.id }}"> 
+        <img src="{{ user.avatar }}" alt="{{ user.first_name }}" />
+        <p>{{ user.first_name }} {{ user.last_name}}</p>
+      </a>
+    </li>
+  </ul>
+  <button type="button">
+    add new
+  </button>
 </section>
-

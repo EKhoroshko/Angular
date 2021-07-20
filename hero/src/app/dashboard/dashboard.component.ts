@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { FormUser } from '../heroes/formUser';
+import {httpService} from '../http.service';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
+  providers: [httpService]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
-
-  constructor(private heroService: HeroService) {}
+  users:FormUser[] = [];
+ 
+  constructor(private httpService: httpService) {}
 
   ngOnInit() {
-    this.getHeroes();
+    this.getUsers();
   }
 
-  getHeroes(): void {
-    this.heroService
-      .getHeroes()
-      .subscribe((heroes) => (this.heroes = heroes.slice(1, 5)));
+  getUsers(){
+     this.httpService.getUsers()
+    .subscribe((response)=> {
+      this.users = response.data});
   }
 }
