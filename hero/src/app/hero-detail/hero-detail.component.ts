@@ -19,11 +19,6 @@ export class HeroDetailComponent implements OnInit {
     job: string;
   };
 
-  userSave!: {
-    name: string,
-    job: string,
-  };
-
   visibility: boolean = true;
 
   constructor(
@@ -31,6 +26,11 @@ export class HeroDetailComponent implements OnInit {
     private httpService: httpService,
     private location: Location
   ) {}
+
+  userSave!: {
+    name: string;
+    job: string;
+  };
 
   ngOnInit(): void {
     this.getUser();
@@ -42,15 +42,16 @@ export class HeroDetailComponent implements OnInit {
       this.user = user.data;
     });
   }
+  
   goBack(): void {
     this.location.back();
   }
 
   save(): void {
-    if (this.user) {
-      this.httpService.updateUser(this.userSave).subscribe((response) => console.log(response)
-      );
-    }
+      this.httpService
+        .updateUser(this.userSave)
+        .subscribe((response) => console.log(response));
+  
   }
 
   delete(id: number) {

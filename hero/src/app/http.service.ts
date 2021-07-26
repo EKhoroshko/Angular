@@ -11,11 +11,11 @@ export class httpService {
   constructor(private http: HttpClient) {}
 
   incriment() {
-   return this.pages += 1;
+    return (this.pages += 1);
   }
 
-  decriment(){
-    return this.pages -= 1;
+  decriment() {
+    return (this.pages -= 1);
   }
 
   prewPages(): Observable<any> {
@@ -54,7 +54,7 @@ export class httpService {
     return this.http.delete<any>(url);
   }
 
-  updateUser(user: { name: string; job: string; }): Observable<any> {
+  updateUser(user: { name: string, job: string}): Observable<any> {
     return this.http.put(`${this.postUrl}api/users/2`, user);
   }
 }
