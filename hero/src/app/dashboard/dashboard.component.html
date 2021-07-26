@@ -1,18 +1,21 @@
 <section class="top">
-  <a class="top-logout" routerLink="/base">Log Out</a>
+  <a class="link" mat-stroked-button class="top-logout" routerLink="/base">Log Out</a>
   <h2 class="top-title">Card Users</h2>
   
-  <ul  class="top-list">
-    <li class="list-item" *ngFor="let user of users">
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile class="list-item" *ngFor="let user of users"> 
       <a class="top-link" routerLink="/detail/{{ user.id }}">
         <img class="list-image" src="{{ user.avatar }}" alt="{{ user.first_name }}" />
         <p>{{ user.first_name }} {{ user.last_name }}</p>
         <p>{{ jobs }}</p>
       </a>
-    </li>
-  </ul>
-  <button class="btn-add" type="button" (click)="toggle()">add new</button>
-  <button class="btn-add" type="submit" (click)="nextUsers()">Next</button>
+      </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <button  mat-raised-button color="primary" type="submit" (click)="prewUsers()">Prew</button>
+  <button mat-raised-button color="primary"type="button" (click)="toggle()">add new</button>
+  <button mat-raised-button color="primary" type="submit" (click)="nextUsers()">Next</button>
 </section>
 
 <section [ngClass]="{ invisible: visibility }">
@@ -20,7 +23,7 @@
     <form  class="top-form">
       <input class="top-input" type="text" placeholder="Enter name" />
       <input class="top-input" type="text" placeholder="job" />
-      <button class="btn-add" type="submit" (click)="add()">Create</button>
+      <button mat-raised-button color="primary" type="submit" (click)="add()">Create</button>
     </form>
   </div>
 </section>

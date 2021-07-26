@@ -10,6 +10,8 @@ import { HeroRegComponent } from './hero-reg/hero-reg.component';
 import { HeroBaseComponent } from './hero-base/hero-base.component';
 import { HeroLoginComponent } from './hero-login/hero-login.component';
 import { httpService } from './http.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DemoMaterialModule} from './material-module'
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { httpService } from './http.service';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    DemoMaterialModule,
   ],
   providers: [httpService],
   bootstrap: [AppComponent],

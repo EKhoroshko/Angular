@@ -11,11 +11,21 @@ export class httpService {
   constructor(private http: HttpClient) {}
 
   incriment() {
-    this.pages += 1;
+   return this.pages += 1;
+  }
+
+  decriment(){
+    return this.pages -= 1;
+  }
+
+  prewPages(): Observable<any> {
+    this.decriment();
+    return this.http.get(`${this.postUrl}api/users?page=${this.pages}`);
   }
 
   nextPages(): Observable<any> {
-    return this.http.get(`${this.postUrl}api/users?page=${this.incriment}`);
+    this.incriment();
+    return this.http.get(`${this.postUrl}api/users?page=${this.pages}`);
   }
 
   postDataLogin(user: User) {
@@ -27,7 +37,7 @@ export class httpService {
   }
 
   addUser(user: RedackUser): Observable<RedackUser> {
-    return this.http.post<RedackUser>(`${this.postUrl}/api/users`, user);
+    return this.http.post<RedackUser>(`${this.postUrl}api/users`, user);
   }
 
   getUsers(): Observable<any> {
@@ -45,7 +55,7 @@ export class httpService {
     return this.http.delete<any>(url);
   }
 
-  updateUser(user: RedackUser): Observable<any> {
+  updateUser(user: { name: string; job: string; }): Observable<any> {
     return this.http.put(`${this.postUrl}api/users/2`, user);
   }
 }

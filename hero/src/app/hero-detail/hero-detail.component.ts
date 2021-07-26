@@ -20,8 +20,8 @@ export class HeroDetailComponent implements OnInit {
   };
 
   userSave!: {
-    name: string;
-    job: string;
+    name: string,
+    job: string,
   };
 
   visibility: boolean = true;
@@ -48,7 +48,8 @@ export class HeroDetailComponent implements OnInit {
 
   save(): void {
     if (this.user) {
-      this.httpService.updateUser(this.userSave).subscribe(() => this.goBack());
+      this.httpService.updateUser(this.userSave).subscribe((response) => console.log(response)
+      );
     }
   }
 

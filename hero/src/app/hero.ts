@@ -3,6 +3,6 @@ export class User {
 }
 
 export interface RedackUser {
-  name: string;
-  job: string
+  name: string,
+  job: string,
 }

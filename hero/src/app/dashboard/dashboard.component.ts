@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormUser } from '../formUser';
 import { RedackUser } from '../hero';
 import { httpService } from '../http.service';
+import { FormsModule }   from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,10 +34,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  add(): void {
-    this.httpService.addUser(this.useradd).subscribe(() => {
-      console.log(this.useradd);
+  prewUsers(){
+    this.httpService.prewPages().subscribe((response) => {
+      this.users = response.data;
     });
+  }
+
+  add(): void {
+    this.httpService.addUser(this.useradd).subscribe();
   }
 
   toggle() {
