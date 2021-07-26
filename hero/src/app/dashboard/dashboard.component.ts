@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormUser } from '../formUser';
 import { RedackUser } from '../hero';
 import { httpService } from '../http.service';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +17,12 @@ export class DashboardComponent implements OnInit {
   users: FormUser[] = [];
   visibility: boolean = true;
   useradd!: RedackUser;
- 
-  constructor(private httpService: httpService) {}
+
+  constructor(
+    private httpService: httpService,
+    private routes: Router,
+    private auth: AuthService
+  ) {}
 
   ngOnInit() {
     this.getUsers();
@@ -34,7 +40,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  prewUsers(){
+  prewUsers() {
     this.httpService.prewPages().subscribe((response) => {
       this.users = response.data;
     });
@@ -46,5 +52,10 @@ export class DashboardComponent implements OnInit {
 
   toggle() {
     this.visibility = !this.visibility;
+  }
+
+  logOut() {
+    this.auth.logout();
+    this.routes.navigate(['login']);
   }
 }

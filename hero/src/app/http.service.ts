@@ -51,7 +51,6 @@ export class httpService {
 
   deleteUser(id: number): Observable<any> {
     const url = `${this.postUrl}api/users/${id}`;
-
     return this.http.delete<any>(url);
   }
 
