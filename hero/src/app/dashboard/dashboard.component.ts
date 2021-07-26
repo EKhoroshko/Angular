@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormUser } from '../formUser';
+import { RedackUser } from '../hero';
 import { httpService } from '../http.service';
 
 @Component({
@@ -12,12 +13,8 @@ export class DashboardComponent implements OnInit {
   jobs: string = 'worker';
   users: FormUser[] = [];
   visibility: boolean = true;
-
-  useradd!: {
-    names: string;
-    job: string;
-  };
-
+  useradd!: RedackUser;
+ 
   constructor(private httpService: httpService) {}
 
   ngOnInit() {
@@ -26,6 +23,12 @@ export class DashboardComponent implements OnInit {
 
   getUsers() {
     this.httpService.getUsers().subscribe((response) => {
+      this.users = response.data;
+    });
+  }
+
+  nextUsers() {
+    this.httpService.nextPages().subscribe((response) => {
       this.users = response.data;
     });
   }

@@ -6,8 +6,17 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class httpService {
   private postUrl = 'https://reqres.in/';
+  pages = 1;
 
   constructor(private http: HttpClient) {}
+
+  incriment() {
+    this.pages += 1;
+  }
+
+  nextPages(): Observable<any> {
+    return this.http.get(`${this.postUrl}api/users?page=${this.incriment}`);
+  }
 
   postDataLogin(user: User) {
     return this.http.post(`${this.postUrl}api/login`, user);
@@ -17,12 +26,12 @@ export class httpService {
     return this.http.post(`${this.postUrl}api/register`, user);
   }
 
-  addUser(user: any) {
-    return this.http.post(`${this.postUrl}/api/users`, user);
+  addUser(user: RedackUser): Observable<RedackUser> {
+    return this.http.post<RedackUser>(`${this.postUrl}/api/users`, user);
   }
 
   getUsers(): Observable<any> {
-    return this.http.get(`${this.postUrl}api/users?page=1`);
+    return this.http.get(`${this.postUrl}api/users?page=${this.pages}`);
   }
 
   getUser(id: number): Observable<any> {
