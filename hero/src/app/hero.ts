@@ -3,5 +3,5 @@ export class User {
 }
 
 export class RedackUser {
-  constructor(public name: string, public job: string) {}
+  constructor(public name: string = "", public job: string = "") {}
 }

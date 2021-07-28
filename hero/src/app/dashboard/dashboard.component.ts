@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   jobs: string = 'worker';
   users: FormUser[] = [];
   visibility: boolean = true;
-  useradd!: RedackUser;
+  useradd: RedackUser = new RedackUser();
 
   constructor(
     private httpService: httpService,
@@ -46,8 +46,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  add(): void {
-    this.httpService.addUser(this.useradd).subscribe();
+  add(useradd: RedackUser): void {
+    this.httpService.addUser(useradd).subscribe();
   }
 
   toggle() {

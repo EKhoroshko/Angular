@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { httpService } from '../http.service';
+import { RedackUser } from '../hero';
 
 @Component({
   selector: 'app-hero-detail',
@@ -27,10 +28,7 @@ export class HeroDetailComponent implements OnInit {
     private location: Location
   ) {}
 
-  userSave!: {
-    name: string;
-    job: string;
-  };
+  userSave: RedackUser = new RedackUser();
 
   ngOnInit(): void {
     this.getUser();
@@ -47,9 +45,9 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  save(userSave: RedackUser): void {
       this.httpService
-        .updateUser(this.userSave)
+        .updateUser(userSave)
         .subscribe((response) => console.log(response));
   
   }

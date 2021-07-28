@@ -54,7 +54,7 @@ export class httpService {
     return this.http.delete<any>(url);
   }
 
-  updateUser(user: { name: string, job: string}): Observable<any> {
+  updateUser(user: RedackUser): Observable<any> {
     return this.http.put(`${this.postUrl}api/users/2`, user);
   }
 }

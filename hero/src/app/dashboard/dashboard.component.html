@@ -1,29 +1,60 @@
 <section class="top">
-  <a class="link" mat-stroked-button class="top-logout" (click)="logOut()" routerLink="/base">Log Out</a>
+  <a
+    class="link"
+    mat-stroked-button
+    class="top-logout"
+    (click)="logOut()"
+    routerLink="/base"
+    >Log Out</a
+  >
   <h2 class="top-title">Card Users</h2>
-  
-    <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile class="list-item" *ngFor="let user of users"> 
+
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile class="list-item" *ngFor="let user of users">
       <a class="top-link" routerLink="/detail/{{ user.id }}">
-        <img class="list-image" src="{{ user.avatar }}" alt="{{ user.first_name }}" />
+        <img
+          class="list-image"
+          src="{{ user.avatar }}"
+          alt="{{ user.first_name }}"
+        />
         <p>{{ user.first_name }} {{ user.last_name }}</p>
         <p>{{ jobs }}</p>
       </a>
-      </mat-grid-tile>
+    </mat-grid-tile>
   </mat-grid-list>
 
-
-  <button  mat-raised-button color="primary" type="submit" (click)="prewUsers()">Prew</button>
-  <button mat-raised-button color="primary"type="button" (click)="toggle()">add new</button>
-  <button mat-raised-button color="primary" type="submit" (click)="nextUsers()">Next</button>
+  <button mat-raised-button color="primary" type="submit" (click)="prewUsers()">
+    Prew
+  </button>
+  <button mat-raised-button color="primary" type="button" (click)="toggle()">
+    add new
+  </button>
+  <button mat-raised-button color="primary" type="submit" (click)="nextUsers()">
+    Next
+  </button>
 </section>
 
-<section [ngClass]="{ invisible: visibility }">
+<section [ngClass]="{ invisible: visibility }" class="input-form">
   <div class="top-box">
-    <form  class="top-form">
-      <input class="top-input" type="text" placeholder="Enter name" />
-      <input class="top-input" type="text" placeholder="job" />
-      <button mat-raised-button color="primary" type="submit" (click)="add()">Create</button>
-    </form>
+    <input
+      class="top-input"
+      type="text"
+      placeholder="Enter name"
+      [(ngModel)]="useradd.name"
+    />
+    <input
+      class="top-input"
+      type="text"
+      placeholder="job"
+      [(ngModel)]="useradd.job"
+    />
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="add(useradd)"
+    >
+      Create
+    </button>
   </div>
 </section>
