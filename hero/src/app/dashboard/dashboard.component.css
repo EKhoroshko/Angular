@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.top-logout{
+.top-logout {
   width: 150px;
   display: block;
   margin-left: auto;
@@ -18,27 +18,27 @@
   margin-bottom: 20px;
 }
 
-.top-list{
+.top-list {
   display: flex;
   flex-wrap: wrap;
   margin-left: -10px;
 }
 
-.list-item{
+.list-item {
   margin-right: 10px;
   margin-bottom: 25px;
   flex-basis: calc(100% / 3 - 10px);
 }
 
-.list-item:nth-child(3n+3){
+.list-item:nth-child(3n + 3) {
   margin-right: 0px;
 }
 
-.list-item:nth-last-child(-n +3){
+.list-item:nth-last-child(-n + 3) {
   margin-bottom: 0px;
 }
 
-.list-image{
+.list-image {
   display: block;
   width: 100%;
 }
@@ -53,7 +53,7 @@
   display: none;
 }
 
-button{
+button {
   width: 150px;
   margin-right: 10px;
 }
@@ -78,7 +78,7 @@ button{
   border-radius: 4px;
 }
 
-.input-form{
+.input-form {
   display: flex;
   justify-content: space-around;
 }
